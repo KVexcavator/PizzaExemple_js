@@ -1,3 +1,6 @@
+var x = 1;
+
 function something() {
-    alert('Overall function!!!');
+    alert(x);
+    x++;
 };
