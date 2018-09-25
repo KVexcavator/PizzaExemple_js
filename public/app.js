@@ -7,9 +7,13 @@ function something() {
 };
 
 function add_to_cart(id) {
-    var key = "product_" + id
-    var x = window.localStorage.getItem(key);
+    var k = "product_" + id
+    var x = window.localStorage.getItem(k);
     x = x * 1 + 1;
-    window.localStorage.setItem(key, x);
-    alert('You addet this product to cart ' + x)
+    window.localStorage.setItem(k, x);
+    for (var i = 0, len = localStorage.length; i < len; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage[key];
+        alert(key + " => " + value);
+    }
 };
