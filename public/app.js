@@ -6,13 +6,20 @@ function something() {
     alert(x);
 };
 
+
+function update_orders_input() {
+    var orders = cart_get_orders();
+    //jQuery синтаксис для добавления в поле с id
+    $('#orders_input').val(orders);
+}
+
 function add_to_cart(id) {
     var k = "product_" + id
     var x = window.localStorage.getItem(k);
     x = x * 1 + 1;
     window.localStorage.setItem(k, x);
 
-    alert('Items in your cart:' + cart_get_number_of_items())
+    update_orders_input();
 };
 
 function cart_get_number_of_items() {
