@@ -11,9 +11,17 @@ function add_to_cart(id) {
     var x = window.localStorage.getItem(k);
     x = x * 1 + 1;
     window.localStorage.setItem(k, x);
+
+};
+
+function cart_get_number_of_items() {
+    var cnt = 0;
     for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
         var value = localStorage[key];
-        alert(key + " => " + value);
-    }
+        if (key.indexOf("product_") == 0) {
+            cnt = cnt + value * 1;
+        };
+    };
+    return cnt;
 };
