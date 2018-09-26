@@ -13,6 +13,12 @@ function update_orders_input() {
     $('#orders_input').val(orders);
 }
 
+function update_orders_button() {
+    var text = "Cart [" + cart_get_number_of_items() + "]";
+    //jQuery синтаксис для добавления в поле с id
+    $('#orders_button').val(text);
+}
+
 function add_to_cart(id) {
     var k = "product_" + id
     var x = window.localStorage.getItem(k);
@@ -20,6 +26,7 @@ function add_to_cart(id) {
     window.localStorage.setItem(k, x);
 
     update_orders_input();
+    update_orders_button();
 };
 
 function cart_get_number_of_items() {
