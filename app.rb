@@ -19,11 +19,13 @@ get '/about' do
 end
 
 post '/cart' do
-	erb "cart post test"			
+	orders_input=params[:orders]
+	@orders=parse_orders_input orders_input
+	erb "Orders input : #{@orders.inspect} !!!"			
 end
 
-def parse_orders_line orders_line
-			s1=orders_line.split(',')
+def parse_orders_input orders_input
+			s1=orders_input.split(',')
 			arr=[]
 			s1.each do |s|
 				s2=s.split('=')
